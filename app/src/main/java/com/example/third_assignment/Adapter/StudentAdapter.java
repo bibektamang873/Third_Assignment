@@ -37,7 +37,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder
         holder.fullname.setText(student.getFullName());
         holder.age.setText(student.getAge());
         holder.gender.setText(student.getGender());
-        holder.address.setText(student.getAddress());
+        holder.address.setText(student.getAddress()) ;
         holder.studentImage.set
         holder.btnDelete.setOnClickListener(
     }
