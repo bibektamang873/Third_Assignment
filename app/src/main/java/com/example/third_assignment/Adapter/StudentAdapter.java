@@ -32,14 +32,29 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
         final Student student = students.get(position);
-        holder.fullname.setText(student.getFullName());
+        holder.fullName.setText(student.getFullName());
         holder.age.setText(student.getAge());
         holder.gender.setText(student.getGender());
         holder.address.setText(student.getAddress()) ;
-        holder.studentImage.set
-        holder.btnDelete.setOnClickListener(
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v.getId() == R.id.btnDelete){
+                    students.remove(student);
+                    notifyItemRemoved(position);
+                }
+            }
+        });
+
+        if(holder.gender.equals("male")){
+            holder.studentImage.setImageResource(R.drawable.iconMale);
+        }else if(holder.gender.equals("female")){
+            holder.studentImage.setImageResource(R.drawable.iconFemale);
+        }else{
+            holder.studentImage.setImageResource(R.drawable.iconOthers);
+        }
     }
 
     @Override
@@ -49,13 +64,13 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder
 
     public class MyHolder extends RecyclerView.ViewHolder{
         ImageView studentImage;
-        TextView fullname, age, address, gender;
+        TextView fullName, age, address, gender;
         Button btnDelete;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             studentImage = itemView.findViewById(R.id.imageView);
-            fullname = itemView.findViewById(R.id.tvName);
+            fullName = itemView.findViewById(R.id.tvName);
             age = itemView.findViewById(R.id.tvAge);
             address = itemView.findViewById(R.id.tvAddress);
             gender = itemView.findViewById(R.id.tvGender);

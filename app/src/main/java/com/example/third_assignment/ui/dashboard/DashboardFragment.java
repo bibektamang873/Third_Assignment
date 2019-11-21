@@ -32,7 +32,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener,
     RadioGroup rgGender;
     Button btnSave;
 
-    final List<Student> students =new ArrayList<>();
+    public static List<Student> students =new ArrayList<>();
     String fullname, age, gender, address;
 
 

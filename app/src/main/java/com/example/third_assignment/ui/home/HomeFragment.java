@@ -11,9 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.third_assignment.Adapter.StudentAdapter;
 import com.example.third_assignment.R;
+import com.example.third_assignment.ui.dashboard.DashboardFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -27,6 +30,11 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         rvStudents = root.findViewById(R.id.rvStudents);
+        StudentAdapter adapter = new StudentAdapter(DashboardFragment.students);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        rvStudents.setLayoutManager(layoutManager);
+        rvStudents.setAdapter(adapter);
+
 
 
         /*
