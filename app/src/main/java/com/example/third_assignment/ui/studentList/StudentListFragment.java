@@ -28,21 +28,11 @@ public class StudentListFragment extends Fragment {
 
         rvStudents = root.findViewById(R.id.rvStudents);
 
-        StudentAdapter adapter = new StudentAdapter(getActivity(),AddStudentFragment.students);
+        StudentAdapter adapter = new StudentAdapter(getActivity(), AddStudentFragment.students);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rvStudents.setLayoutManager(layoutManager);
         rvStudents.setAdapter(adapter);
 
-
-        /*
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-         */
         return root;
     }
 }

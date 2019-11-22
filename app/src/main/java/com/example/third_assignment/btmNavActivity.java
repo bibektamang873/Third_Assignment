@@ -28,9 +28,9 @@ public class btmNavActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        AddStudentFragment.students.add(new Student("Bibek Tamang","Male","Baneshwor",22));
-        AddStudentFragment.students.add(new Student("Sita Rai","Female","Butwal",20));
-        AddStudentFragment.students.add(new Student("Soniya Shrestha","Others","Bhaktapur",21));
+        AddStudentFragment.students.add(new Student("Bibek Tamang", "Male", "Baneshwor", 22));
+        AddStudentFragment.students.add(new Student("Sita Rai", "Female", "Butwal", 20));
+        AddStudentFragment.students.add(new Student("Soniya Shrestha", "Others", "Bhaktapur", 21));
 
     }
 

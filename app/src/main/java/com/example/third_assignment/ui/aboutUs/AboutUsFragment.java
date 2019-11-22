@@ -29,18 +29,8 @@ public class AboutUsFragment extends Fragment {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
         webView.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
-        webView.loadUrl("https://www.google.com.np/");
+        webView.loadUrl("https://softwarica.edu.np/");
 
-        /*
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-
-         */
         return root;
     }
 }

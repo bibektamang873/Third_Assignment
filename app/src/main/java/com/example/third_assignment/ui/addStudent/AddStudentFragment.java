@@ -20,7 +20,7 @@ import com.example.third_assignment.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddStudentFragment extends Fragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener{
+public class AddStudentFragment extends Fragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
     private DashboardViewModel dashboardViewModel;
 
@@ -28,9 +28,8 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
     RadioGroup rgGender;
     Button btnSave;
 
-    public static List<Student> students =new ArrayList<>();
+    public static List<Student> students = new ArrayList<>();
     String fullname, age, gender, address;
-
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -47,36 +46,28 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
 
         btnSave.setOnClickListener(this);
         rgGender.setOnCheckedChangeListener(this);
-        /*
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-         */
+
         return root;
     }
 
     @Override
     public void onClick(View v) {
 
-        if(v.getId() == R.id.btnSave){
+        if (v.getId() == R.id.btnSave) {
             fullname = etFullname.getText().toString();
             age = etAge.getText().toString();
             address = etAddress.getText().toString();
 
-          if (validate()){
-            students.add(new Student(fullname, gender, address, Integer.parseInt(age)));
-              Toast.makeText(getContext(), "Student Added Successfully", Toast.LENGTH_SHORT).show();
-          }
+            if (validate()) {
+                students.add(new Student(fullname, gender, address, Integer.parseInt(age)));
+                Toast.makeText(getContext(), "Student Added Successfully", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
 
     private boolean validate() {
-        if (TextUtils.isEmpty(fullname)){
+        if (TextUtils.isEmpty(fullname)) {
             etFullname.setError("Enter Full Name");
             return false;
         }
@@ -84,7 +75,7 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
             etAge.setError("Enter Age");
             return false;
         }
-        if(!TextUtils.isDigitsOnly(age)){
+        if (!TextUtils.isDigitsOnly(age)) {
             etAge.setError("Invalid Age");
             return false;
         }
@@ -92,7 +83,7 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
             etAge.setError("Enter Address");
             return false;
         }
-        if(TextUtils.isEmpty(gender)){
+        if (TextUtils.isEmpty(gender)) {
             Toast.makeText(getContext(), "Select Gender", Toast.LENGTH_SHORT).show();
             return false;
         }
