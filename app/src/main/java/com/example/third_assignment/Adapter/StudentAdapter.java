@@ -49,11 +49,11 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder
         });
 
         if(holder.gender.equals("male")){
-            holder.studentImage.setImageResource(R.drawable.iconMale);
+            holder.studentImage.setImageResource(R.drawable.icon_male);
         }else if(holder.gender.equals("female")){
-            holder.studentImage.setImageResource(R.drawable.iconFemale);
+            holder.studentImage.setImageResource(R.drawable.icon_female);
         }else{
-            holder.studentImage.setImageResource(R.drawable.iconOthers);
+            holder.studentImage.setImageResource(R.drawable.icon_others);
         }
     }
 
