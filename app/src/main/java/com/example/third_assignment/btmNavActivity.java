@@ -2,6 +2,8 @@ package com.example.third_assignment;
 
 import android.os.Bundle;
 
+import com.example.third_assignment.Model.Student;
+import com.example.third_assignment.ui.addStudent.AddStudentFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +27,12 @@ public class btmNavActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        AddStudentFragment.students.add(new Student("Bibek Tamang","Male","Baneshwor",22));
+        AddStudentFragment.students.add(new Student("Sita Rai","Female","Butwal",20));
+        AddStudentFragment.students.add(new Student("Soniya Shrestha","Others","Bhaktapur",21));
+
     }
+
 
 }

@@ -1,5 +1,7 @@
 package com.example.third_assignment.Adapter;
 
+import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +20,10 @@ import java.util.List;
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder> {
 
     List<Student> students;
+    Context context;
 
-    public StudentAdapter(List<Student> students) {
+    public StudentAdapter(Context context, List<Student> students) {
+        this.context = context;
         this.students = students;
     }
 
@@ -35,9 +39,19 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder
     public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
         final Student student = students.get(position);
         holder.fullName.setText(student.getFullName());
-        holder.age.setText(student.getAge());
+        holder.age.setText(Integer.toString(student.getAge()));
         holder.gender.setText(student.getGender());
         holder.address.setText(student.getAddress()) ;
+
+        String gen = student.getGender();
+        if(gen.equals("Male")){
+            holder.studentImage.setImageResource(R.drawable.icon_male);
+        }else if(gen.equals("Female")){
+            holder.studentImage.setImageResource(R.drawable.icon_female);
+        }else{
+            holder.studentImage.setImageResource(R.drawable.icon_others);
+        }
+
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,14 +61,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder
                 }
             }
         });
-
-        if(holder.gender.equals("male")){
-            holder.studentImage.setImageResource(R.drawable.icon_male);
-        }else if(holder.gender.equals("female")){
-            holder.studentImage.setImageResource(R.drawable.icon_female);
-        }else{
-            holder.studentImage.setImageResource(R.drawable.icon_others);
-        }
     }
 
     @Override
